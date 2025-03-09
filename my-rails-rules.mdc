@@ -66,10 +66,20 @@ alwaysApply: false
 - Use eager loading to avoid N+1 queries.
 - Optimize database queries using includes, joins, or select.
 
-# Security
+# Security (applies to: app/controllers/**/*.rb, config/initializers/*.rb)
 - Implement proper authentication and authorization (e.g., Pundit).
 - Use strong parameters in controllers.
 - Protect against common web vulnerabilities (XSS, CSRF, SQL injection).
+- Restrict API access to trusted clients (web and mobile apps):
+  - Require an API key in every request via the "X-API-Key" header.
+  - Store the API key securely in Rails credentials (rails credentials:edit).
+  - For web clients, avoid hardcoding the API key in JavaScript; use environment variables.
+  - For mobile clients, store the API key in secure storage (e.g., Keychain on iOS, Keystore on Android).
+  - Verify the API key in a before_action filter in ApplicationController using secure_compare.
+  - Optionally, check the Origin header for web requests (e.g., https://mywebapp.com).
+  - Return 401 Unauthorized for invalid or missing API keys.
+  - Mandate HTTPS for all endpoints to encrypt the API key in transit (set config.force_ssl = true in production).
+  - Ensure frontend requests (web and mobile) use HTTPS URLs (e.g., https://myrailsbackend.com).
 
 # Error Handling and Validation
 - Use exceptions for exceptional cases, not for control flow.
