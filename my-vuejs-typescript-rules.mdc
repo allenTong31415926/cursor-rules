@@ -1,0 +1,62 @@
+---
+description: Comprehensive guidelines and best practices for using TypeScript with Vue.js, covering code style, structure, naming conventions, syntax, error handling, UI styling, and performance optimization.
+globs: src/**/*.vue, src/**/*.ts, src/**/*.tsx, src/**/*.d.ts, src/store/**/*.ts, src/composables/**/*.ts, src/composables/**/*.js, src/hooks/**/*.ts, src/hooks/**/*.js, src/router/**/*.ts, src/mixins/**/*.ts, src/directives/**/*.ts, src/assets/**/*.{css,scss,sass,less}, src/styles/**/*.css, tests/unit/**/*.spec.ts, tests/unit/**/*.test.ts, tests/e2e/**/*.spec.ts, tests/e2e/**/*.test.ts, cypress/**/*.ts, cypress/**/*.js, cypress/**/*.cy.ts, public/**/*.html, .vitepress/**/*.md, .vitepress/**/*.vue, .vitepress/**/*.ts, .vitepress/**/*.tsx, vite.config.ts, vite.config.js, .eslintrc.js, .eslintrc.cjs, .eslintrc.json, package.json
+alwaysApply: false
+---
+# Code Style and Structure
+- Write concise, maintainable, and technically accurate TypeScript code with relevant examples.
+- Use functional and declarative programming patterns; avoid classes.
+- Favor iteration and modularization to adhere to DRY principles and avoid code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Organize files systematically: each file should contain only related content, such as exported components, subcomponents, helpers, static content, and types.
+- Organize components into single-file components (SFCs) with `.vue` extension.
+- Use PascalCase for component files (e.g., `MyComponent.vue`).
+- Group related components into directories (e.g., `components/`, `views/`).
+
+# Naming Conventions
+- Use camelCase for variables and functions (e.g., `myVariable`, `myFunction`).
+- Use PascalCase for component names (e.g., `MyComponent`).
+- Use UPPER_SNAKE_CASE for constants (e.g., `MAX_ITEMS`).
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for functions.
+
+# TypeScript Usage
+- Always annotate function parameters and return types.
+- Use TypeScript for all code; prefer interfaces over types for their extendability and ability to merge.
+- Avoid enums; use maps instead for better type safety and flexibility.
+- Use functional components with TypeScript interfaces.
+- Prefer interfaces for defining object shapes and types for unions and intersections.
+- Use generics for reusable and type-safe components and functions.
+
+# Syntax and Formatting
+- Always use the Vue Composition API script setup style.
+- Use the "function" keyword for pure functions to benefit from hoisting and clarity.
+- Use 2 spaces for indentation.
+- Avoid semicolons unless necessary.
+- Keep lines under 80 characters for readability.
+
+# Error Handling and Validation
+- Use `try/catch` blocks for handling asynchronous errors.
+- Validate props using Vue's `PropType` and TypeScript types.
+- Implement global error boundaries to catch runtime errors.
+
+# UI and Styling
+- Use scoped styles within Vue components.
+- Integrate Tailwind CSS for utility-first styling.
+- Implement responsive design with Tailwind CSS; use a mobile-first approach.
+
+# Performance Optimization
+- Use Vue's `defineAsyncComponent` for lazy loading components.
+- Use `computed` properties and `watch` for efficient state management.
+- Enable tree shaking to remove unused code during build.
+- Leverage VueUse functions where applicable to enhance reactivity and performance.
+- Wrap asynchronous components in Suspense with a fallback UI.
+- Use dynamic loading for non-critical components.
+- Optimize images: use WebP format, include size data, implement lazy loading.
+- Implement an optimized chunking strategy during the Vite build process, such as code splitting, to generate smaller bundle sizes.
+
+# Key Conventions
+- Adhere to Vue.js documentation for best practices and conventions.
+- Maintain consistent coding style across the project.
+- Regularly review code to ensure adherence to guidelines.
+
